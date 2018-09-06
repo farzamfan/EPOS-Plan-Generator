@@ -46,6 +46,8 @@ public class Plan {
 
         PlanGenerator planGenerator = new PlanGenerator(raw,main,alg);
         Action[] actions = new Action[1];
+
+        //this is the most important part that needs to be connected to the app
         Action action = planGenerator.createAction("Kettle","12:00","14:00","00:30","13:00",false);
         actions[0] = action;
 
