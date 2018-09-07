@@ -60,16 +60,16 @@ public class Plan {
         List<String[]> dev = new ArrayList<>();
         dev.add(planGenerator.createPlan(ret));
 
-        CSVwriter csVwriter = new CSVwriter();
-        int t=0;
-        for (String[] devices : dev) {
-            csVwriter.writeCSV(new String[]{"USER"},t,devices,main,alg);
-            t++;
-        }
-
-        PlanWriter planWriter = new PlanWriter();
-        planWriter.createAggregates(main + alg[0]+alg[1]+alg[2]);
-        planWriter.createPlanFormat(main + alg[0]+alg[1]+alg[2]);
+//        CSVwriter csVwriter = new CSVwriter();
+//        int t=0;
+//        for (String[] devices : dev) {
+//            csVwriter.writeCSV(new String[]{"USER"},t,devices,main,alg);
+//            t++;
+//        }
+//
+//        PlanWriter planWriter = new PlanWriter();
+//        planWriter.createAggregates(main + alg[0]+alg[1]+alg[2]);
+//        planWriter.createPlanFormat(main + alg[0]+alg[1]+alg[2]);
 
 
     }
