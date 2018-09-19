@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9cd71f06-2bcc-414c-a935-ceb63db14e64" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/ETHZ/Scheduler/Plan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ETHZ/Scheduler/Plan.java" afterDir="false" />
-    </list>
+    <list default="true" id="9cd71f06-2bcc-414c-a935-ceb63db14e64" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,8 +15,8 @@
       <file leaf-file-name="Plan.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ETHZ/Scheduler/Plan.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="850">
-              <caret line="72" lean-forward="true" selection-start-line="62" selection-start-column="10" selection-end-line="72" />
+            <state relative-caret-position="844">
+              <caret line="72" selection-start-line="62" selection-start-column="10" selection-end-line="72" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -133,7 +131,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -174,7 +172,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -298,11 +296,12 @@
       <workItem from="1536050633981" duration="8431000" />
       <workItem from="1536138715947" duration="306000" />
       <workItem from="1536309129571" duration="560000" />
+      <workItem from="1536315259424" duration="5000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28696000" />
+    <option name="totallyTimeSpent" value="28701000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1133" extended-state="6" />
@@ -358,6 +357,53 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/ETHZ/Scheduler/Plan.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1080">
+          <caret line="72" lean-forward="true" selection-start-line="62" selection-start-column="10" selection-end-line="72" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ETHZ/Utils/CSVwriter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ETHZ/Scheduler/PlanGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4200">
+          <caret line="290" column="97" selection-start-line="290" selection-start-column="97" selection-end-line="290" selection-end-column="97" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ETHZ/Scheduler/Schedule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1665">
+          <caret line="127" column="62" selection-start-line="127" selection-start-column="44" selection-end-line="127" selection-end-column="62" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ETHZ/Utils/ThreadManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1395">
+          <caret line="94" column="9" selection-start-line="94" selection-start-column="9" selection-end-line="94" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ETHZ/Scheduler/Plan.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -620,8 +666,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ETHZ/Scheduler/Plan.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="72" lean-forward="true" selection-start-line="62" selection-start-column="10" selection-end-line="72" />
+        <state relative-caret-position="844">
+          <caret line="72" selection-start-line="62" selection-start-column="10" selection-end-line="72" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
