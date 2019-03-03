@@ -1,8 +1,6 @@
 <component name="libraryTable">
   <library name="JavaMI">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/lib/JavaMI.jar!/" />
-    </CLASSES>
+    <CLASSES />
     <JAVADOC />
     <SOURCES />
   </library>

@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="commons-math3-3.0">
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/../P-EPOS/PlanGenerator/commons-math3-3.0.jar" />
+      <root url="file://$PROJECT_DIR$/../plannerApp-dataAndplans/PlanGenerator/commons-math3-3.0.jar" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

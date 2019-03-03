@@ -1,6 +1,7 @@
 package ETHZ.Scheduler;
 
 import ETHZ.Utils.*;
+import com.sun.tools.corba.se.idl.StringGen;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -173,6 +174,10 @@ public class PlanGenerator {
         String[] wattages;
 
         wattages = (String[]) obj.get(0);
+
+        //use for changing the profile consumption data (kettle experiment)
+        wattages = consumptionChange(wattages);
+
         actions = (String[]) obj.get(1);
         combinations = (String[]) obj.get(2);
 
@@ -204,7 +209,7 @@ public class PlanGenerator {
                     if ((int) indeces[j] > -1) {
                         schedules[i][j] = list[j].getVersion((int) indeces[j]);
                     } else {
-                        //System.out.print(combinations.length + " " + i + " " + longCombinations[i] + " " + j + " " + indeces[j] + " " + list[j].versions.length + "\n");
+//                        System.out.print(combinations.length + " " + i + " " + longCombinations[i] + " " + j + " " + indeces[j] + " " + list[j].versions.length + "\n");
                         schedules[i][j] = list[j].getVersion(0);
                     }
 
@@ -309,20 +314,19 @@ public class PlanGenerator {
 
     public void chooseSamplingTechnique(Action[][] finalList) {
         if (algCase[0].equals("EvenDist-")) {
-            fullList = getNRankedEvenlySpreadSchedules(finalList, Integer.parseInt(algCase[1]));
-        } else if (algCase[0].equals("EvenDist-")) {
+            System.out.println("given to ED");
             fullList = getNRankedEvenlySpreadSchedules(finalList, Integer.parseInt(algCase[1]));
         } else if (algCase[0].equals("TopRanked-")) {
+            System.out.println("given to TR");
             fullList = getTopNRankedSchedules(finalList, Integer.parseInt(algCase[1]));
-        } else if (algCase[0].equals("TopRanked-")) {
-            fullList = getTopNRankedSchedules(finalList, Integer.parseInt(algCase[1]));
+        } else if (algCase[0].equals("WorstRanked-")) {
+            System.out.println("given to WR");
+            //fullList = getWorstNRankedSchedules(finalList, Integer.parseInt(algCase[1]));
         } else if (algCase[0].equals("CloserToBest-")) {
-            fullList = getNRankedSchedulesWithMoreCloserToBestRating(finalList, Integer.parseInt(algCase[1]));
-        } else if (algCase[0].equals("CloserToBest-")) {
+            System.out.println("given to CtB");
             fullList = getNRankedSchedulesWithMoreCloserToBestRating(finalList, Integer.parseInt(algCase[1]));
         } else if (algCase[0].equals("CloserToWorst-")) {
-            fullList = getNRankedSchedulesWithMoreCloserToWorstRating(finalList, Integer.parseInt(algCase[1]));
-        } else if (algCase[0].equals("ClosertoWorst-")) {
+            System.out.println("given to CtW");
             fullList = getNRankedSchedulesWithMoreCloserToWorstRating(finalList, Integer.parseInt(algCase[1]));
         }
     }
@@ -348,5 +352,27 @@ public class PlanGenerator {
         obj.add(combinations);
 
         return obj;
+    }
+
+    String[] consumptionChange(String[] wattage){
+
+        if (wattage[0].equals("2")){ wattage[5] = String.valueOf(Float.parseFloat(wattage[5])*45.23/100); }
+        else if (wattage[0].equals("3")){ wattage[5] = String.valueOf(Float.parseFloat(wattage[5])*25.75/100); }
+        else if (wattage[0].equals("4")){ wattage[5] = String.valueOf(Float.parseFloat(wattage[5])*37.89/100); }
+        else if (wattage[0].equals("5")){ wattage[5] = String.valueOf(Float.parseFloat(wattage[5])*49.57/100); }
+        else if (wattage[0].equals("6")){ wattage[5] = String.valueOf(Float.parseFloat(wattage[5])*46.68/100); }
+        else if (wattage[0].equals("7")){ wattage[5] = String.valueOf(Float.parseFloat(wattage[5])*56.54/100); }
+        else if (wattage[0].equals("8")){ wattage[5] = String.valueOf(Float.parseFloat(wattage[5])*21.37/100); }
+        else if (wattage[0].equals("9")){ wattage[5] = String.valueOf(Float.parseFloat(wattage[5])*13.12/100); }
+        else if (wattage[0].equals("11")){ wattage[5] = String.valueOf(Float.parseFloat(wattage[5])*37.53/100); }
+        else if (wattage[0].equals("12")){ wattage[5] = String.valueOf(Float.parseFloat(wattage[5])*42.41/100); }
+        else if (wattage[0].equals("13")){ wattage[5] = String.valueOf(Float.parseFloat(wattage[5])*31.98/100); }
+        else if (wattage[0].equals("17")){ wattage[5] = String.valueOf(Float.parseFloat(wattage[5])*35.14/100); }
+        else if (wattage[0].equals("19")){ wattage[5] = String.valueOf(Float.parseFloat(wattage[5])*68.78/100); }
+        else if (wattage[0].equals("20")){ wattage[5] = String.valueOf(Float.parseFloat(wattage[5])*84.14/100); }
+        else { wattage[5] = String.valueOf(Float.parseFloat(wattage[5])*42.58/100);
+            System.out.println("here");}
+
+        return wattage;
     }
 }

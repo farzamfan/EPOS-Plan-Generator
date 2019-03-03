@@ -11,21 +11,27 @@ public class Plan {
 
     public static void main(String[] args) throws Exception {
         Plan plan = new Plan();
-        plan.PlanFromRun();
-//        plan.planFromFiles();
+//        plan.PlanFromRun();
+        plan.planFromFiles();
     }
 
     public void planFromFiles() throws Exception {
         List<String[]> dev = new ArrayList<>();
 
-        String raw = "/Users/farzamf/Projects/ETHZ/P-EPOS/datasets/v7";
-        String main = "/Users/farzamf/Projects/ETHZ/P-EPOS/datasets/v8/";
-        String[] alg = {"EvenDist-", "5", "/"};
+        String raw = "/Users/farzamf/Desktop/SIPOS/datasets/v7";
+        String main = "/Users/farzamf/Desktop/SIPOS/datasets/v9-REFITKettle/";
+        String[] alg = {"WorstRanked-", "10", "/"};
 
         PlanGenerator planGenerator = new PlanGenerator(raw,main,alg);
-        List allPlans =  planGenerator.readFromFile();
-        for (int i=0;i<allPlans.size();i++) { dev.add(planGenerator.createPlan((List) allPlans.get(i))); }
-
+//        List allPlans =  planGenerator.readFromFile();
+//
+//        int i=0;
+//        while (i<allPlans.size())
+//        {
+//            dev.add(planGenerator.createPlan((List) allPlans.get(i)));
+//            i++;
+//        }
+//
 //        CSVwriter csVwriter = new CSVwriter();
 //        int t=0;
 //        for (String[] devices : dev) {
@@ -33,9 +39,16 @@ public class Plan {
 //            t++;
 //        }
 //
-//        PlanWriter planWriter = new PlanWriter();
+        PlanWriter planWriter = new PlanWriter();
 //        planWriter.createAggregates(main + alg[0]+alg[1]+alg[2]);
-//        planWriter.createPlanFormat(main + alg[0]+alg[1]+alg[2]);
+        planWriter.createPlanFormat(main + alg[0]+alg[1]+alg[2]);
+//        planWriter.createPlanFormat(main + alg[0]+alg[1]+alg[2]+alg[0]+alg[1]+"-noComp"+alg[2]);
+//        planWriter.createPlanFormat(main + alg[0]+alg[1]+alg[2]+alg[0]+alg[1]+"-noDW"+alg[2]);
+//        planWriter.createPlanFormat(main + alg[0]+alg[1]+alg[2]+alg[0]+alg[1]+"-noKettle"+alg[2]);
+//        planWriter.createPlanFormat(main + alg[0]+alg[1]+alg[2]+alg[0]+alg[1]+"-noHob"+alg[2]);
+//        planWriter.createPlanFormat(main + alg[0]+alg[1]+alg[2]+alg[0]+alg[1]+"-noOven"+alg[2]);
+//        planWriter.createPlanFormat(main + alg[0]+alg[1]+alg[2]+alg[0]+alg[1]+"-noTD"+alg[2]);
+//        planWriter.createPlanFormat(main + alg[0]+alg[1]+alg[2]+alg[0]+alg[1]+"-noWM"+alg[2]);
 
     }
 
@@ -60,16 +73,16 @@ public class Plan {
         List<String[]> dev = new ArrayList<>();
         dev.add(planGenerator.createPlan(ret));
 
-//        CSVwriter csVwriter = new CSVwriter();
-//        int t=0;
-//        for (String[] devices : dev) {
-//            csVwriter.writeCSV(new String[]{"USER"},t,devices,main,alg);
-//            t++;
-//        }
-//
-//        PlanWriter planWriter = new PlanWriter();
-//        planWriter.createAggregates(main + alg[0]+alg[1]+alg[2]);
-//        planWriter.createPlanFormat(main + alg[0]+alg[1]+alg[2]);
+        CSVwriter csVwriter = new CSVwriter();
+        int t=0;
+        for (String[] devices : dev) {
+            csVwriter.writeCSV(new String[]{"USER"},t,devices,main,alg);
+            t++;
+        }
+
+        PlanWriter planWriter = new PlanWriter();
+        planWriter.createAggregates(main + alg[0]+alg[1]+alg[2]);
+        planWriter.createPlanFormat(main + alg[0]+alg[1]+alg[2]);
 
 
     }

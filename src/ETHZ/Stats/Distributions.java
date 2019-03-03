@@ -1,6 +1,6 @@
 package ETHZ.Stats;
 
-import org.apache.commons.math3.distribution.PoissonDistribution;
+//import org.apache.commons.math3.distribution.PoissonDistribution;
 
 public class Distributions {
 
@@ -26,10 +26,10 @@ public class Distributions {
         return x;
     }
 
-    public static int apachePoisson(int p) {
-        PoissonDistribution poissonDistribution = new PoissonDistribution(1400);
-        return poissonDistribution.sample();
-    }
+//    public static int apachePoisson(int p) {
+//        PoissonDistribution poissonDistribution = new PoissonDistribution(1400);
+//        return poissonDistribution.sample();
+//    }
 }
 
 

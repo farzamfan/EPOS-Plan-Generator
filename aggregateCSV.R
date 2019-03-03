@@ -1,4 +1,5 @@
 args = commandArgs(trailingOnly=TRUE)
+
 userFiles <- list.files(paste(args,"detailedCSV/",sep = ""))
 p <- 1
 q <- 1
@@ -19,5 +20,3 @@ for(i in 1:(length(userFiles))){
   write.csv2(aggregate,paste(paste(args,"allAggregates/",sep = ""),paste(paste("aggPlanUser",p,"day",q,sep = "-"),"csv",sep="."),sep="/"))
   q <- q+1
 }
-
-

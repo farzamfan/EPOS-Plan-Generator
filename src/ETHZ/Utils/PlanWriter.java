@@ -36,8 +36,8 @@ public class PlanWriter {
             PrintWriter writer1 = new PrintWriter(writerPath1 + "/agent_" +k+ ".plans", "UTF-8");
 
             for (String L : lines) {
-                //StringBuilder L2 = new StringBuilder(L.replaceAll(";", ",").substring(13)).insert(0, "0.00230415" + ":");
-                writer1.println(L);
+                StringBuilder L2 = new StringBuilder(L.substring(L.indexOf(";")+1).replaceAll(",",".").replaceAll(";", ",").replaceFirst(",",":"));
+                writer1.println(L2);
             }
             k++;
             writer1.close();

@@ -10,6 +10,7 @@ public class CSVwriter {
                 //System.out.print(devices[i]+"\n");
                 String toFile = "";
                 String applianceName = "";
+
                 switch (i) {
                     case 1:
                         applianceName = mainFolder + algCase[0] + algCase[1] + algCase[2] + "/detailedCSV/" + folders[j] + "/" + "Hob";
@@ -39,25 +40,29 @@ public class CSVwriter {
                         applianceName = mainFolder + algCase[0] + algCase[1] + algCase[2] + "/detailedCSV/" + folders[j] + "/" + "Shower";
                         break;
                 }
-                toFile = devices[i];
 
-                File fileName = new File(applianceName + "-schedules.csv");
-                fileName.getParentFile().getParentFile().mkdirs();
-                fileName.getParentFile().mkdir();
-                FileWriter fileWriter = null;
+                if (applianceName.equals("")){}
+                else {
+                    toFile = devices[i];
 
-                try {
-                    fileWriter = new FileWriter(fileName);
-                    fileWriter.append(toFile);
-                } catch (Exception e) {
+                    File fileName = new File(applianceName + "-schedules.csv");
+                    fileName.getParentFile().getParentFile().mkdirs();
+                    fileName.getParentFile().mkdir();
+                    FileWriter fileWriter = null;
 
-                } finally {
                     try {
-                        fileWriter.flush();
-                        fileWriter.close();
-                    } catch (IOException e) {
-                        System.out.println("Error while flushing/closing fileWriter !!!");
-                        e.printStackTrace();
+                        fileWriter = new FileWriter(fileName);
+                        fileWriter.append(toFile);
+                    } catch (Exception e) {
+
+                    } finally {
+                        try {
+                            fileWriter.flush();
+                            fileWriter.close();
+                        } catch (IOException e) {
+                            System.out.println("Error while flushing/closing fileWriter !!!");
+                            e.printStackTrace();
+                        }
                     }
                 }
             }
