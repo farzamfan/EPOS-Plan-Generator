@@ -1,6 +1,6 @@
 #args = commandArgs(trailingOnly=TRUE)
 
-args1 <- "/Users/farzamf/Desktop/SIPOS/datasets/v8/WorstRanked-10/WorstRanked-10-noComp/"
+args1 <- "/Users/farzamf/Desktop/SIPOS/datasets/v8-appExc/CloserToWorst-10/CloserToWorst-10-noComp/"
 
 userFiles1 <- list.files(paste(args1,"detailedCSV/",sep = ""))
 
@@ -16,14 +16,15 @@ for(i in 1:(length(userFiles1))){
   aggregate <- data.frame(read.csv(planFiles1[1],sep = ","))
   for(j in 2:length(planFiles1)){
     newData <- data.frame(read.csv(planFiles1[j],sep = ","))
-    aggregate[,-1] <- aggregate[,-1] + newData[,-1]
+    aggregate <- aggregate + newData
   }
   
   dev = data.frame()
-  dev <- data.frame(read.csv(paste("/Users/farzamf/Desktop/SIPOS/datasets/v7/WorstRanked-10/detailedCSV/",userFiles1[i],"/Computer-schedules.csv",sep = ""),sep = ","))[1,]
+  dev <- data.frame(read.csv(paste("/Users/farzamf/Desktop/SIPOS/datasets/v7/CloserToWorst-10/detailedCSV/",userFiles1[i],"/Computer-schedules.csv",sep = ""),sep = ","))[1,]
   dev[2:nrow(aggregate),] <- dev
   aggregate <- aggregate + dev
   
+  aggregate[,1] <- aggregate[1,length(planFiles1)+1]
   
   dir.create(paste(args1,"allAggregates/",sep = "") , showWarnings = FALSE)
   write.csv2(aggregate,paste(paste(args1,"detailedCSV/",sep = ""),userFiles1[i],"aggregatedPlan.csv",sep="/"))
@@ -37,7 +38,7 @@ remove(list = ls())
 
 #args = commandArgs(trailingOnly=TRUE)
 
-args1 <- "/Users/farzamf/Desktop/SIPOS/datasets/v8/WorstRanked-10/WorstRanked-10-noDW/"
+args1 <- "/Users/farzamf/Desktop/SIPOS/datasets/v8-appExc/CloserToWorst-10/CloserToWorst-10-noDW/"
 
 userFiles1 <- list.files(paste(args1,"detailedCSV/",sep = ""))
 
@@ -57,10 +58,11 @@ for(i in 1:(length(userFiles1))){
   }
   
   dev = data.frame()
-  dev <- data.frame(read.csv(paste("/Users/farzamf/Desktop/SIPOS/datasets/v7/WorstRanked-10/detailedCSV/",userFiles1[i],"/DishWasher-schedules.csv",sep = ""),sep = ","))[1,]
+  dev <- data.frame(read.csv(paste("/Users/farzamf/Desktop/SIPOS/datasets/v7/CloserToWorst-10/detailedCSV/",userFiles1[i],"/DishWasher-schedules.csv",sep = ""),sep = ","))[1,]
   dev[2:nrow(aggregate),] <- dev
   aggregate <- aggregate + dev
   
+  aggregate[,1] <- aggregate[1,length(planFiles1)+1]
   
   dir.create(paste(args1,"allAggregates/",sep = "") , showWarnings = FALSE)
   write.csv2(aggregate,paste(paste(args1,"detailedCSV/",sep = ""),userFiles1[i],"aggregatedPlan.csv",sep="/"))
@@ -74,7 +76,7 @@ remove(list = ls())
 
 #args = commandArgs(trailingOnly=TRUE)
 
-args1 <- "/Users/farzamf/Desktop/SIPOS/datasets/v8/WorstRanked-10/WorstRanked-10-noHob/"
+args1 <- "/Users/farzamf/Desktop/SIPOS/datasets/v8-appExc/CloserToWorst-10/CloserToWorst-10-noHob/"
 
 userFiles1 <- list.files(paste(args1,"detailedCSV/",sep = ""))
 
@@ -94,10 +96,11 @@ for(i in 1:(length(userFiles1))){
   }
   
   dev = data.frame()
-  dev <- data.frame(read.csv(paste("/Users/farzamf/Desktop/SIPOS/datasets/v7/WorstRanked-10/detailedCSV/",userFiles1[i],"/Hob-schedules.csv",sep = ""),sep = ","))[1,]
+  dev <- data.frame(read.csv(paste("/Users/farzamf/Desktop/SIPOS/datasets/v7/CloserToWorst-10/detailedCSV/",userFiles1[i],"/Hob-schedules.csv",sep = ""),sep = ","))[1,]
   dev[2:nrow(aggregate),] <- dev
   aggregate <- aggregate + dev
   
+  aggregate[,1] <- aggregate[1,length(planFiles1)+1]
   
   dir.create(paste(args1,"allAggregates/",sep = "") , showWarnings = FALSE)
   write.csv2(aggregate,paste(paste(args1,"detailedCSV/",sep = ""),userFiles1[i],"aggregatedPlan.csv",sep="/"))
@@ -111,7 +114,7 @@ remove(list = ls())
 
 #args = commandArgs(trailingOnly=TRUE)
 
-args1 <- "/Users/farzamf/Desktop/SIPOS/datasets/v8/WorstRanked-10/WorstRanked-10-noKettle/"
+args1 <- "/Users/farzamf/Desktop/SIPOS/datasets/v8-appExc/CloserToWorst-10/CloserToWorst-10-noKettle/"
 
 userFiles1 <- list.files(paste(args1,"detailedCSV/",sep = ""))
 
@@ -131,10 +134,11 @@ for(i in 1:(length(userFiles1))){
   }
   
   dev = data.frame()
-  dev <- data.frame(read.csv(paste("/Users/farzamf/Desktop/SIPOS/datasets/v7/WorstRanked-10/detailedCSV/",userFiles1[i],"/Kettle-schedules.csv",sep = ""),sep = ","))[1,]
+  dev <- data.frame(read.csv(paste("/Users/farzamf/Desktop/SIPOS/datasets/v7/CloserToWorst-10/detailedCSV/",userFiles1[i],"/Kettle-schedules.csv",sep = ""),sep = ","))[1,]
   dev[2:nrow(aggregate),] <- dev
   aggregate <- aggregate + dev
   
+  aggregate[,1] <- aggregate[1,length(planFiles1)+1]
   
   dir.create(paste(args1,"allAggregates/",sep = "") , showWarnings = FALSE)
   write.csv2(aggregate,paste(paste(args1,"detailedCSV/",sep = ""),userFiles1[i],"aggregatedPlan.csv",sep="/"))
@@ -148,7 +152,7 @@ remove(list = ls())
 
 #args = commandArgs(trailingOnly=TRUE)
 
-args1 <- "/Users/farzamf/Desktop/SIPOS/datasets/v8/WorstRanked-10/WorstRanked-10-noOven/"
+args1 <- "/Users/farzamf/Desktop/SIPOS/datasets/v8-appExc/CloserToWorst-10/CloserToWorst-10-noOven/"
 
 userFiles1 <- list.files(paste(args1,"detailedCSV/",sep = ""))
 
@@ -168,10 +172,11 @@ for(i in 1:(length(userFiles1))){
   }
   
   dev = data.frame()
-  dev <- data.frame(read.csv(paste("/Users/farzamf/Desktop/SIPOS/datasets/v7/WorstRanked-10/detailedCSV/",userFiles1[i],"/Oven-schedules.csv",sep = ""),sep = ","))[1,]
+  dev <- data.frame(read.csv(paste("/Users/farzamf/Desktop/SIPOS/datasets/v7/CloserToWorst-10/detailedCSV/",userFiles1[i],"/Oven-schedules.csv",sep = ""),sep = ","))[1,]
   dev[2:nrow(aggregate),] <- dev
   aggregate <- aggregate + dev
   
+  aggregate[,1] <- aggregate[1,length(planFiles1)+1]
   
   dir.create(paste(args1,"allAggregates/",sep = "") , showWarnings = FALSE)
   write.csv2(aggregate,paste(paste(args1,"detailedCSV/",sep = ""),userFiles1[i],"aggregatedPlan.csv",sep="/"))
@@ -185,7 +190,7 @@ remove(list = ls())
 
 #args = commandArgs(trailingOnly=TRUE)
 
-args1 <- "/Users/farzamf/Desktop/SIPOS/datasets/v8/WorstRanked-10/WorstRanked-10-noTD/"
+args1 <- "/Users/farzamf/Desktop/SIPOS/datasets/v8-appExc/CloserToWorst-10/CloserToWorst-10-noTD/"
 
 userFiles1 <- list.files(paste(args1,"detailedCSV/",sep = ""))
 
@@ -205,10 +210,11 @@ for(i in 1:(length(userFiles1))){
   }
   
   dev = data.frame()
-  dev <- data.frame(read.csv(paste("/Users/farzamf/Desktop/SIPOS/datasets/v7/WorstRanked-10/detailedCSV/",userFiles1[i],"/TumbleDryer-schedules.csv",sep = ""),sep = ","))[1,]
+  dev <- data.frame(read.csv(paste("/Users/farzamf/Desktop/SIPOS/datasets/v7/CloserToWorst-10/detailedCSV/",userFiles1[i],"/TumbleDryer-schedules.csv",sep = ""),sep = ","))[1,]
   dev[2:nrow(aggregate),] <- dev
   aggregate <- aggregate + dev
   
+  aggregate[,1] <- aggregate[1,length(planFiles1)+1]
   
   dir.create(paste(args1,"allAggregates/",sep = "") , showWarnings = FALSE)
   write.csv2(aggregate,paste(paste(args1,"detailedCSV/",sep = ""),userFiles1[i],"aggregatedPlan.csv",sep="/"))
@@ -222,7 +228,7 @@ remove(list = ls())
 
 #args = commandArgs(trailingOnly=TRUE)
 
-args1 <- "/Users/farzamf/Desktop/SIPOS/datasets/v8/WorstRanked-10/WorstRanked-10-noWM/"
+args1 <- "/Users/farzamf/Desktop/SIPOS/datasets/v8-appExc/CloserToWorst-10/CloserToWorst-10-noWM/"
 
 userFiles1 <- list.files(paste(args1,"detailedCSV/",sep = ""))
 
@@ -242,10 +248,11 @@ for(i in 1:(length(userFiles1))){
   }
   
   dev = data.frame()
-  dev <- data.frame(read.csv(paste("/Users/farzamf/Desktop/SIPOS/datasets/v7/WorstRanked-10/detailedCSV/",userFiles1[i],"/WashingMachine-schedules.csv",sep = ""),sep = ","))[1,]
+  dev <- data.frame(read.csv(paste("/Users/farzamf/Desktop/SIPOS/datasets/v7/CloserToWorst-10/detailedCSV/",userFiles1[i],"/WashingMachine-schedules.csv",sep = ""),sep = ","))[1,]
   dev[2:nrow(aggregate),] <- dev
   aggregate <- aggregate + dev
   
+  aggregate[,1] <- aggregate[1,length(planFiles1)+1]
   
   dir.create(paste(args1,"allAggregates/",sep = "") , showWarnings = FALSE)
   write.csv2(aggregate,paste(paste(args1,"detailedCSV/",sep = ""),userFiles1[i],"aggregatedPlan.csv",sep="/"))

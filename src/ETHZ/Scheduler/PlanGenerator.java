@@ -175,8 +175,8 @@ public class PlanGenerator {
 
         wattages = (String[]) obj.get(0);
 
-        //use for changing the profile consumption data (kettle experiment)
-        wattages = consumptionChange(wattages);
+//        use for changing the profile consumption data (kettle experiment)
+//        wattages = consumptionChange(wattages);
 
         actions = (String[]) obj.get(1);
         combinations = (String[]) obj.get(2);
@@ -314,19 +314,14 @@ public class PlanGenerator {
 
     public void chooseSamplingTechnique(Action[][] finalList) {
         if (algCase[0].equals("EvenDist-")) {
-            System.out.println("given to ED");
             fullList = getNRankedEvenlySpreadSchedules(finalList, Integer.parseInt(algCase[1]));
         } else if (algCase[0].equals("TopRanked-")) {
-            System.out.println("given to TR");
             fullList = getTopNRankedSchedules(finalList, Integer.parseInt(algCase[1]));
         } else if (algCase[0].equals("WorstRanked-")) {
-            System.out.println("given to WR");
-            //fullList = getWorstNRankedSchedules(finalList, Integer.parseInt(algCase[1]));
+            fullList = getWorstNRankedSchedules(finalList, Integer.parseInt(algCase[1]));
         } else if (algCase[0].equals("CloserToBest-")) {
-            System.out.println("given to CtB");
             fullList = getNRankedSchedulesWithMoreCloserToBestRating(finalList, Integer.parseInt(algCase[1]));
         } else if (algCase[0].equals("CloserToWorst-")) {
-            System.out.println("given to CtW");
             fullList = getNRankedSchedulesWithMoreCloserToWorstRating(finalList, Integer.parseInt(algCase[1]));
         }
     }
@@ -341,8 +336,8 @@ public class PlanGenerator {
         List obj = new ArrayList();
 
         act = input.split(csvSplitBy);
-        //String watts = act[0];
-        String watts = "1,1000,3000,472,513,29,1800,1379,9000";
+        String watts = act[0];
+//        String watts = "1,1000,3000,472,513,29,1800,1379,9000";
         wattages = watts.split(commaSeparator);
         actions = act[0].split(actionSeparator);
         combinations = act[1].split(commaSeparator);

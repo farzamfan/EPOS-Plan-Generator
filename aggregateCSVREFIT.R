@@ -1,6 +1,6 @@
 #args = commandArgs(trailingOnly=TRUE)
 
-args1 <- "/Users/farzamf/Desktop/SIPOS/datasets/v9-REFITKettle/WorstRanked-10/"
+args1 <- "/Users/farzamf/Desktop/SIPOS/datasets/v9-REFITKettle/CloserToWorst-10/"
 args2 <- "/Users/farzamf/Desktop/SIPOS/datasets/v9-REFITKettle/raw/"
 
 userFiles1 <- list.files(paste(args1,"detailedCSV/",sep = ""))
@@ -28,8 +28,6 @@ for(i in 1:(length(userFiles1))){
   }
   
   planFiles1 <- list.files(paste(paste(args1,"detailedCSV/",sep = ""),userFiles1[i],sep="/"),full.names = TRUE)
-  
-  print(planFiles1[1])
   
   aggregate = data.frame()
   dev <- data.frame(read.csv(planFiles1[4],sep = ","))[1,]

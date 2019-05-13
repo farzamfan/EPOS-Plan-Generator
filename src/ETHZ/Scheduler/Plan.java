@@ -19,10 +19,10 @@ public class Plan {
         List<String[]> dev = new ArrayList<>();
 
         String raw = "/Users/farzamf/Desktop/SIPOS/datasets/v7";
-        String main = "/Users/farzamf/Desktop/SIPOS/datasets/v9-REFITKettle/";
-        String[] alg = {"WorstRanked-", "10", "/"};
+        String main = "/Users/farzamf/Desktop/SIPOS/datasets/v10-JKettle/";
+        String[] alg = {"CloserToWorst-", "10", "/"};
 
-        PlanGenerator planGenerator = new PlanGenerator(raw,main,alg);
+//        PlanGenerator planGenerator = new PlanGenerator(raw,main,alg);
 //        List allPlans =  planGenerator.readFromFile();
 //
 //        int i=0;
@@ -38,10 +38,11 @@ public class Plan {
 //            csVwriter.writeCSV(PlanGenerator.folders,t,devices,main,alg);
 //            t++;
 //        }
-//
+
         PlanWriter planWriter = new PlanWriter();
 //        planWriter.createAggregates(main + alg[0]+alg[1]+alg[2]);
         planWriter.createPlanFormat(main + alg[0]+alg[1]+alg[2]);
+
 //        planWriter.createPlanFormat(main + alg[0]+alg[1]+alg[2]+alg[0]+alg[1]+"-noComp"+alg[2]);
 //        planWriter.createPlanFormat(main + alg[0]+alg[1]+alg[2]+alg[0]+alg[1]+"-noDW"+alg[2]);
 //        planWriter.createPlanFormat(main + alg[0]+alg[1]+alg[2]+alg[0]+alg[1]+"-noKettle"+alg[2]);

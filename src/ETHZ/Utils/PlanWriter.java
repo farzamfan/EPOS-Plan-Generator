@@ -9,10 +9,12 @@ public class PlanWriter {
     public void createPlanFormat(String algFiles) throws IOException {
 
         int k=0;
-
+        int j=0;
         String [] files;
         String pathname = algFiles+"/allAggregates/";
+        System.out.println(pathname);
         File path = new File(pathname);
+        System.out.println(pathname);
         files = path.list();
         for (String f:files) {
 
@@ -30,16 +32,20 @@ public class PlanWriter {
                 lines.add(line);
             }
 
-            String writerPath1 = algFiles + "/planfiles/";
-            File plans = new File(algFiles + "/planfiles/");
-            plans.mkdir();
+            String writerPath1 = algFiles + "/planfiles/day"+j;
+            File plans = new File(algFiles + "/planfiles/day"+j);
+            plans.mkdirs();
             PrintWriter writer1 = new PrintWriter(writerPath1 + "/agent_" +k+ ".plans", "UTF-8");
 
             for (String L : lines) {
                 StringBuilder L2 = new StringBuilder(L.substring(L.indexOf(";")+1).replaceAll(",",".").replaceAll(";", ",").replaceFirst(",",":"));
                 writer1.println(L2);
             }
-            k++;
+            j++;
+            if (j==4){
+                k++;
+                j=0;
+            }
             writer1.close();
         }
 

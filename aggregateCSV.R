@@ -13,8 +13,10 @@ for(i in 1:(length(userFiles))){
   aggregate <- data.frame(read.csv(planFiles[1],sep = ","))
   for(j in 2:length(planFiles)){
     newData <- data.frame(read.csv(planFiles[j],sep = ","))
-    aggregate[,-1] <- aggregate[,-1] + newData[,-1]
+    aggregate <- aggregate+ newData
   }
+  aggregate[,1] <- aggregate[,1]/length(planFiles)
+  
   dir.create(paste(args,"allAggregates/",sep = "") , showWarnings = FALSE)
   write.csv2(aggregate,paste(paste(args,"detailedCSV/",sep = ""),userFiles[i],"aggregatedPlan.csv",sep="/"))
   write.csv2(aggregate,paste(paste(args,"allAggregates/",sep = ""),paste(paste("aggPlanUser",p,"day",q,sep = "-"),"csv",sep="."),sep="/"))
