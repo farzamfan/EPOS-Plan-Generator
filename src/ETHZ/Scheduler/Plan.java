@@ -22,22 +22,22 @@ public class Plan {
         String main = "/Users/farzamf/Desktop/SIPOS/datasets/v10-JKettle/";
         String[] alg = {"CloserToWorst-", "10", "/"};
 
-//        PlanGenerator planGenerator = new PlanGenerator(raw,main,alg);
-//        List allPlans =  planGenerator.readFromFile();
-//
-//        int i=0;
-//        while (i<allPlans.size())
-//        {
-//            dev.add(planGenerator.createPlan((List) allPlans.get(i)));
-//            i++;
-//        }
-//
-//        CSVwriter csVwriter = new CSVwriter();
-//        int t=0;
-//        for (String[] devices : dev) {
-//            csVwriter.writeCSV(PlanGenerator.folders,t,devices,main,alg);
-//            t++;
-//        }
+       PlanGenerator planGenerator = new PlanGenerator(raw,main,alg);
+       List allPlans =  planGenerator.readFromFile();
+
+       int i=0;
+       while (i<allPlans.size())
+       {
+           dev.add(planGenerator.createPlan((List) allPlans.get(i)));
+           i++;
+       }
+
+       CSVwriter csVwriter = new CSVwriter();
+       int t=0;
+       for (String[] devices : dev) {
+           csVwriter.writeCSV(PlanGenerator.folders,t,devices,main,alg);
+           t++;
+       }
 
         PlanWriter planWriter = new PlanWriter();
 //        planWriter.createAggregates(main + alg[0]+alg[1]+alg[2]);
